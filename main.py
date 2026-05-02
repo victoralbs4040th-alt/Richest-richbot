@@ -356,7 +356,7 @@ def main():
 
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CallbackQueryHandler(button))
-    app.add_handler(MessageHandler(filters.TEXT & \~filters.COMMAND, text_handler))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, text_handler))
 
     print("🎉 RichBot Revolution Support Bot is running...")
     app.run_polling(drop_pending_updates=True, allowed_updates=Update.ALL_TYPES)
