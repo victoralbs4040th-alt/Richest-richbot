@@ -25,7 +25,7 @@ import smtplib
 # =========================
 BOT_TOKEN = "8256421594:AAHUPwtvb17KtV_NKs6xu-a40MtCrOhTqmU"
 GMAIL_USER = "Victoralbs4050th@gmail.com"
-GMAIL_APP_PASSWORD = "pgpgdfstmhrzrohk"
+GMAIL_APP_PASSWORD = "mwpolegofzrjjxyd"
 ADMIN_EMAIL = "Victoralbs4050th@gmail.com"
 
 if not all([BOT_TOKEN, GMAIL_USER, GMAIL_APP_PASSWORD, ADMIN_EMAIL]):
